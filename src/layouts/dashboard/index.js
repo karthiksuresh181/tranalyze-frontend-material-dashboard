@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
+import MDTypography from "components/MDTypography";
+import MDAvatar from "components/MDAvatar";
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -21,6 +23,8 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 // Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+
+import logoGoogleDev from "assets/images/small-logos/google-webdev.svg";
 
 const axios = require("axios");
 
@@ -43,6 +47,32 @@ function Dashboard() {
   const [tradesOverview, setTradesOverview] = useState("");
   const [yesterdayComparisonPercentage, setYesterdayComparisonPercentage] = useState(0);
 
+  const [tableRows, setTableRows] = useState([]);
+  const [dailyLineChartData, setDailyLineChartData] = useState({});
+  const [weeklyLineChartData, setWeeklyLineChartData] = useState({});
+
+  const Company = ({ image, name }) => (
+    <MDBox display="flex" alignItems="center" lineHeight={1}>
+      <MDAvatar src={image} name={name} size="sm" />
+      <MDTypography variant="button" fontWeight="medium" ml={1} lineHeight={1}>
+        {name}
+      </MDTypography>
+    </MDBox>
+  );
+
+  const handleMonthlyOverviewData = (data) => {
+    let rows = [];
+    let obj = {};
+    Object.keys(data).forEach((key) => {
+      obj = {
+        date: <Company image={logoGoogleDev} name="date" />,
+        gain: "24$",
+      };
+      rows.push(obj);
+    });
+    setTableRows(rows);
+  };
+
   const getOverview = () => {
     axios.get(`${process.env.REACT_APP_API_HOST}/dashboard/get_overview`).then((res) => {
       setTotalGain(res.data.pnl_overview.total_gain);
@@ -61,6 +91,9 @@ function Dashboard() {
 
       setTradesOverview(res.data.trades_overview);
       setYesterdayComparisonPercentage(res.data.yesterday_comparison_percentage);
+
+      handleMonthlyOverviewData(res.data.monthly_trades_overview);
+      setDailyLineChartData(res.data.monthly_chart_data);
     });
   };
 
@@ -138,7 +171,7 @@ function Dashboard() {
             <Grid item xs={12} md={6} lg={4}>
               <MDBox mb={3}>
                 <ReportsBarChart
-                  color="info"
+                  color="dark"
                   title="Daily PNL"
                   description={
                     <>
@@ -146,18 +179,18 @@ function Dashboard() {
                     </>
                   }
                   date="campaign sent 2 days ago"
-                  chart={reportsBarChartData}
+                  chart={dailyLineChartData}
                 />
               </MDBox>
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
               <MDBox mb={3}>
                 <ReportsLineChart
-                  color="success"
+                  color="dark"
                   title="Weekly PNL"
                   description="Weekly Performance"
                   date="updated 4 min ago"
-                  chart={sales}
+                  chart={weeklyLineChartData}
                 />
               </MDBox>
             </Grid>
@@ -176,9 +209,9 @@ function Dashboard() {
         </MDBox>
         <MDBox>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={8}>
-              <Projects />
-            </Grid>
+            {/* <Grid item xs={12} md={6} lg={8}>
+              <Projects tableRows={tableRows} />
+            </Grid> */}
             <Grid item xs={12} md={6} lg={4}>
               <OrdersOverview
                 tradesOverview={tradesOverview}
