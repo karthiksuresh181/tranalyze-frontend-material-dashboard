@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/tranalyze-frontend-material-dashboard/static/js/main.554aa7a0.chunk.js",
-    "main.js.map": "/tranalyze-frontend-material-dashboard/static/js/main.554aa7a0.chunk.js.map",
+    "main.js": "/tranalyze-frontend-material-dashboard/static/js/main.20cc754f.chunk.js",
+    "main.js.map": "/tranalyze-frontend-material-dashboard/static/js/main.20cc754f.chunk.js.map",
     "runtime-main.js": "/tranalyze-frontend-material-dashboard/static/js/runtime-main.f26c87aa.js",
     "runtime-main.js.map": "/tranalyze-frontend-material-dashboard/static/js/runtime-main.f26c87aa.js.map",
     "static/js/2.f7c10d8f.chunk.js": "/tranalyze-frontend-material-dashboard/static/js/2.f7c10d8f.chunk.js",
@@ -13,6 +13,6 @@
   "entrypoints": [
     "static/js/runtime-main.f26c87aa.js",
     "static/js/2.f7c10d8f.chunk.js",
-    "static/js/main.554aa7a0.chunk.js"
+    "static/js/main.20cc754f.chunk.js"
   ]
 }
