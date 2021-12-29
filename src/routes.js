@@ -17,7 +17,7 @@ const routes = [
     name: "Dashboard",
     key: "dashboard",
     icon: <Icon fontSize="small">dashboard</Icon>,
-    route: "/dashboard",
+    route: "/tranalyze-frontend-material-dashboard/",
     component: <Dashboard />,
   },
 ];
