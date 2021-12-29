@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/tranalyze-frontend-material-dashboard/static/js/main.0feafe7d.chunk.js",
+    "main.js.map": "/tranalyze-frontend-material-dashboard/static/js/main.0feafe7d.chunk.js.map",
+    "runtime-main.js": "/tranalyze-frontend-material-dashboard/static/js/runtime-main.f26c87aa.js",
+    "runtime-main.js.map": "/tranalyze-frontend-material-dashboard/static/js/runtime-main.f26c87aa.js.map",
+    "static/js/2.f7c10d8f.chunk.js": "/tranalyze-frontend-material-dashboard/static/js/2.f7c10d8f.chunk.js",
+    "static/js/2.f7c10d8f.chunk.js.map": "/tranalyze-frontend-material-dashboard/static/js/2.f7c10d8f.chunk.js.map",
+    "index.html": "/tranalyze-frontend-material-dashboard/index.html",
+    "static/js/2.f7c10d8f.chunk.js.LICENSE.txt": "/tranalyze-frontend-material-dashboard/static/js/2.f7c10d8f.chunk.js.LICENSE.txt",
+    "static/media/google-webdev.4044a50c.svg": "/tranalyze-frontend-material-dashboard/static/media/google-webdev.4044a50c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f26c87aa.js",
+    "static/js/2.f7c10d8f.chunk.js",
+    "static/js/main.0feafe7d.chunk.js"
+  ]
+}
